@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iomanip>
+#include <limits.h>
+using namespace std;
+
+int main(){
+
+  // INMATNINGSDEL
+  // ============
+  // Mata in första pris: 10.00 (first_val)
+  // Mata in sista pris : 15.00 (last_val)
+  // Mata in steglängd  :  0.5 (step)
+  // Mata in momsprocent: 10.00 (moms)
+
+  cout << "Mata in första pris: ";
+  float first_val = 0;
+  cin >> first_val;
+  cin.ignore(INT_MAX, '\n');
+  cout << endl;
+
+  cout << "Mata in sista pris :";
+  float last_val = 0;
+  cin >> last_val;
+  cin.ignore(INT_MAX, '\n');
+  cout << endl;
+
+  cout << "Mata in steglängd  :";
+  float step = 0;
+  cin >> step;
+  cin.ignore(INT_MAX, 'n');
+  cout << endl;
+
+  cout << "Mata in momsprocent:";
+  float moms = 0;
+  cin >> moms;
+  cin.ignore(INT_MAX, '\n');
+  cout << endl;
+  // MOMSTABELLEN
+  // ============
+  //
+  //          Pris              Moms      Pris med moms
+  //  -------------------------------------------------
+  //         10.00              1.00              11.00
+
+  return 0;
+}
