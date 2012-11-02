@@ -1,0 +1,37 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+struct COMPLEX_NUMBER{
+  double real_part;
+  double imaginary_part;
+}
+
+COMPLEX_NUMBER read_complex_numbers(){
+  
+  //0+1i
+  //2 +3i
+  //4 + 5i
+  //6+-7i
+  //8 +-9i
+  //10 + -11i
+  //-12+13i
+  //0+-14i
+  //3.41 + 2.18i
+
+  cout << "Mata in ett komplext tal: ";
+  COMPLEX_NUMBER number;
+  cin >> number.real_part;
+  cin.ignore(INT_MAX,'+')
+
+  return ;
+
+}
+
+
+int main(){
+
+  
+
+  return 0;
+}
