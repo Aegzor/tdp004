@@ -75,6 +75,19 @@ void menu_abs()
   cout << endl << "Det absoluta värdet av talet är: " << res << endl;
 }
 
+void menu_mandelbrot()
+{
+  COMPLEX_NUMBER number, res;
+  int steps;
+  cout << "Skriv in antal steg som skall beräknas: ";
+  cin >> steps;
+  cin.ignore(INT_MAX, '\n');
+  number = read_complex_number();
+  res = recursive_mandelbrot(number, steps);
+  cout << endl << "Svaret på rekursionen är: ";
+  show_complex_number(res);
+ }
+
 int main()
 {
   char menu_option;
@@ -91,6 +104,7 @@ int main()
 	 << "5. Multiplicera två komplexa tal med varandra." << endl
 	 << "6. Exponentiera ett komplext tal med en exponent." << endl
 	 << "7. Få ut ett komplext tals absoluta värde." << endl
+	 << "8. Rekursion mandelbrot komplext tal." << endl
 	 << "q. Avsluta programmet." << endl << endl;
     cout << "Tecken: ";
     cin >> menu_option;
@@ -118,6 +132,9 @@ int main()
       break;
     case '7':
       menu_abs();
+      break;
+    case '8':
+      menu_mandelbrot();
       break;
     case 'q':
     case 'Q':

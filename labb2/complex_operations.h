@@ -85,6 +85,12 @@ COMPLEX_NUMBER conjugate_complex_number(const COMPLEX_NUMBER& number)
 COMPLEX_NUMBER divide_complex_number(const COMPLEX_NUMBER& complex, double real)
 {
   COMPLEX_NUMBER res;
+  if (real == 0){
+    cout << "Talet kan inte delas med noll.";
+    res.real_part = 0.0;
+    res.imaginary_part = 0.0;
+    return res;
+  }
   res.real_part = complex.real_part/real;
   res.imaginary_part = complex.imaginary_part/real;
 
@@ -109,6 +115,12 @@ COMPLEX_NUMBER divide_complex_number(const COMPLEX_NUMBER& number1,
 				       conjugate_complex_number(number2));
   denominator = multiply_complex_numbers(number2,
 					 conjugate_complex_number(number2));
+  if (denominator.real_part == 0 && denominator.imaginary_part == 0){
+    cout << "Talet kan inte delas med noll.";
+    res.real_part = 0.0;
+    res.imaginary_part = 0.0;
+    return res;
+  }
   res = divide_complex_number(numerator, denominator.real_part);
 
   return res;
@@ -132,5 +144,18 @@ double absolute_complex_number(const COMPLEX_NUMBER& number)
   res = (pow(number.real_part, 2) + pow(number.imaginary_part, 2));
   res = sqrt(res);
 
+  return res;
+}
+
+COMPLEX_NUMBER recursive_mandelbrot(COMPLEX_NUMBER number, int steps)
+{
+  COMPLEX_NUMBER res;
+  if (steps == 0){
+    res.real_part = 0;
+    res.imaginary_part = 0;
+    return res;
+  }
+  res = exponentiate_complex_number(recursive_mandelbrot(number,steps-1), 2);
+  res = sum_complex_numbers(res,number);
   return res;
 }
