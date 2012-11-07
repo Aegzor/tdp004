@@ -1,0 +1,2 @@
+CC=g++
+CFLAGS=-c -Wall -Wextra -pedantic -g -std=c++11

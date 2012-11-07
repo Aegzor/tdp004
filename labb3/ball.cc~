@@ -1,0 +1,45 @@
+#include "ball.h"
+
+Ball::Ball()
+{
+  x_pos = 5;
+  y_pos = 5;
+  x_direction = 1;
+  y_direction = 1;
+  speed = 5;
+}
+
+Ball::~Ball()
+{
+
+}
+
+void Ball::setPos(int x, int y)
+{
+
+}
+
+void Ball::getPos(int& x, int& y)
+{
+
+}
+
+void Ball::setDirection(int x, int y)
+{
+  
+}
+
+void Ball::getDirection(int& x, int& y)
+{
+
+}
+
+void Ball::setSpeed(int speed)
+{
+
+}
+
+void Ball::getSpeed(int& speed)
+{
+
+}
