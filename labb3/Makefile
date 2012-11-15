@@ -1,15 +1,18 @@
+CFILTER=~/bin/gccfilter -a -c
 CC=g++
 CFLAGS=-c -Wall -Wextra -pedantic -g -std=c++11
 
 all: app
 
-app: main.o console.o ball.o
-	\$(CC) main.o console.o ball.o -lncurses -o app
+app: main.o console.o ball.o paddle.o
+	\$(CC) main.o console.o ball.o paddle.o -lncurses -o app
 main.o: main.cc
-	\$(CC) \$(CFLAGS) main.cc
+	$(CFILTER) \$(CC) \$(CFLAGS) main.cc
 console.o: console.cc console.h
-	\$(CC) \$(CFLAGS) console.cc
+	$(CFILTER) \$(CC) \$(CFLAGS) console.cc
 ball.o: ball.cc ball.h
-	\$(CC) \$(CFLAGS) ball.cc
+	$(CFILTER) \$(CC) \$(CFLAGS) ball.cc
+paddle.o: paddle.cc paddle.h
+	$(CFILTER) \$(CC) \$(CFLAGS) paddle.cc
 clean:
 	rm -fr *.o app

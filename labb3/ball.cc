@@ -1,4 +1,5 @@
 #include "ball.h"
+//#include "console.h"
 
 Ball::Ball()
 {
@@ -59,4 +60,41 @@ void Ball::setSpeed(int speed)
 int Ball::getSpeed()
 {
   return speed;
+}
+
+void Ball::collisionDetector(int width, int height, Paddle& paddle)
+{
+  if ( (x_pos == 1) || (x_pos == width - 2) )
+  {
+    x_direction = -x_direction;
+  }
+  if ( (y_pos == 1) || y_pos == height - 1)
+  {
+    y_direction = -y_direction;
+  }
+  if (y_pos == paddle.getPosY() - 1 && x_pos >= paddle.getPosX() &&
+      x_pos <= paddle.getPosX() + paddle.getLength())
+  {
+    y_direction = -y_direction;
+  }
+}
+
+bool Ball::isGameOver(int height)
+{
+  if ( y_pos == height -1 )
+  {
+    return true;
+  }
+  return false;
+}
+
+void Ball::move(Console& console, Paddle& paddle)
+{
+  console.setPos(x_pos, y_pos);
+  console.put(' ');
+  collisionDetector(console.getWidth(),console.getHeight(), paddle);
+  x_pos += x_direction;
+  y_pos += y_direction;
+  console.setPos(x_pos, y_pos);
+  console.put('\254');
 }

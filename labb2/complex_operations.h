@@ -73,13 +73,13 @@ COMPLEX_NUMBER sub_complex_numbers(const COMPLEX_NUMBER& number1,
   return res;
 }
 
-COMPLEX_NUMBER conjugate_complex_number(const COMPLEX_NUMBER& number)
+COMPLEX_NUMBER conjugate_complex_number( COMPLEX_NUMBER number)
 {
-  COMPLEX_NUMBER res;
-  res.real_part = number.real_part;
-  res.imaginary_part = -number.imaginary_part;
+   COMPLEX_NUMBER res = {number.real_part,-number.imaginary_part};
+  //res.real_part = number.real_part;
+  //res.imaginary_part = -number.imaginary_part;
   
-  return res;
+   return res;//COMPLEX_NUMBER (number.real_part,-number.imaginary_part);
 }
 
 COMPLEX_NUMBER divide_complex_number(const COMPLEX_NUMBER& complex, double real)

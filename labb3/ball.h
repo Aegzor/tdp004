@@ -1,6 +1,9 @@
 #ifndef BALL_H
 #define BALL_H
 
+#include "console.h"
+#include "paddle.h"
+
 class Ball
 {
 public:
@@ -22,6 +25,13 @@ public:
   /* set/get speed of the ball (speed is given in x/10 seconds) */
   void setSpeed(int speed);
   int getSpeed();
+
+  /* other game mechanics */
+  void collisionDetector(int width, int height, Paddle& paddle);
+  bool isGameOver(int height);
+
+  /* moves the ball */
+  void move(Console& console, Paddle& paddle);
 
 private:
   
